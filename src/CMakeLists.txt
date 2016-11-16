@@ -1,0 +1,5 @@
+include_directories(include)
+FILE(GLOB SOURCEFILES *.c)
+FILE(GLOB INCLUDE include/*.h)
+add_library(MPIMag SHARED ${SOURCEFILES} ${INCLUDE})
+target_link_libraries(MPIMag ${MPI_C_LIBRARIES})

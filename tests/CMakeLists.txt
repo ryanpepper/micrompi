@@ -1,0 +1,12 @@
+include_directories(${CMAKE_SOURCE_DIR}/src/include)
+FILE(GLOB INCLUDE ../src/include/*.h)
+FILE(GLOB SOURCEFILES *.cpp)
+add_executable(MPIMagtests ${SOURCEFILES})
+set(GTEST ${CMAKE_SOURCE_DIR}/local/googletest-release-1.8.0/googletest/)
+include_directories(${GTEST}/include)
+
+find_package (Threads)
+include_directories(${GTEST_INCLUDE_DIRS})
+include_directories(${CMAKE_SOURCE_DIR}/src/)
+link_directories( ${CMAKE_SOURCE_DIR}/lib ) 
+target_link_libraries(MPIMagtests MPIMag gtest gtest_main ${CMAKE_THREAD_LIBS_INIT})
