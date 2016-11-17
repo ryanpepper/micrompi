@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include<mpi.h>
+#include "mpi.h"
 
 extern "C" {
 #include "mesh.h"
