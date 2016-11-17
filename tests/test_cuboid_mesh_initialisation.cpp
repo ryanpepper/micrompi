@@ -1,8 +1,8 @@
 #include <gtest/gtest.h>
+#include<mpi.h>
 
 extern "C" {
 #include "mesh.h"
-#include<mpi.h>
 }
 
 TEST(mesh_c, initialise_system_global) {
