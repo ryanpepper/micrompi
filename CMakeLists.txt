@@ -1,10 +1,14 @@
 # CMake Root dir
 cmake_minimum_required (VERSION 3.1)
 set( CMAKE_VERBOSE_MAKEFILE on )
-project (MPIMag C CXX)
+project (MPIMag)
 
-find_package(MPI)
-include_directories(SYSTEM ${MPI_INCLUDE_PATH})
+find_package(MPI REQUIRED)
+if (MPI_FOUND)
+    include_directories(SYSTEM ${MPI_INCLUDE_PATH})
+else (MPI_FOUND)
+    message(SEND_ERROR "This application cannot compile without MPI")
+endif (MPI_FOUND)
 
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)
 set (CMAKE_CXX_STANDARD 11)
