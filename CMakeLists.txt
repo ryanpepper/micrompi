@@ -1,5 +1,13 @@
 # CMake Root dir
 cmake_minimum_required (VERSION 3.1)
+
+add_definitions(-DMICROMPI_VERSION=3.1)
+
+# Uncomment for Debug trace outputs
+add_definitions(-DMICROMPI_DEBUG=1)
+add_definitions(-DMICROMPI_TRACE=1)
+
+
 set( CMAKE_VERBOSE_MAKEFILE on )
 set( CMAKE_BUILD_TYPE Debug )
 project (MPIMag C CXX)

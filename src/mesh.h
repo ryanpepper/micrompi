@@ -6,9 +6,12 @@
 typedef struct GlobalMesh {
   int dim;
   int N[3];
+  double d[3];
+  int periodic[3];
+  int size;
   int procs;
   int rank;
-  int* MPI_dims;
+  int MPI_dims[3];
   MPI_Comm *comm;
 } GlobalMesh;
 
@@ -17,5 +20,5 @@ typedef struct LocalMesh {
   double *m;
 } LocalMesh;
 
-void initialise_system(const int N[3], const int d[3], const int periodic[],
-                       LocalMesh *local, GlobalMesh *global, MPI_Comm COMMUNICATOR);
+int initialise_system(const int N[3], const double d[3], const int periodic[],
+                      LocalMesh *local, GlobalMesh *global, MPI_Comm COMMUNICATOR);
