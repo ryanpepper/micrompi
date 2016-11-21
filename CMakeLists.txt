@@ -1,6 +1,7 @@
 # CMake Root dir
 cmake_minimum_required (VERSION 3.1)
 set( CMAKE_VERBOSE_MAKEFILE on )
+set( CMAKE_BUILD_TYPE Debug )
 project (MPIMag C CXX)
 
 find_package(MPI)
