@@ -4,9 +4,12 @@
 #include<mpi.h>
 
 typedef struct GlobalMesh {
-  int Nx, Ny, Nz;
+  int dim;
+  int N[3];
   int procs;
   int rank;
+  int* MPI_dims;
+  MPI_Comm *comm;
 } GlobalMesh;
 
 typedef struct LocalMesh { 
@@ -14,4 +17,5 @@ typedef struct LocalMesh {
   double *m;
 } LocalMesh;
 
-void initialise_system(int Nx, int Ny, int Nz, LocalMesh *local, GlobalMesh *global);
+void initialise_system(const int N[3], const int d[3], const int periodic[],
+                       LocalMesh *local, GlobalMesh *global, MPI_Comm COMMUNICATOR);
