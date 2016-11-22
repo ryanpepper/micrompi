@@ -20,5 +20,8 @@ typedef struct LocalMesh {
   double *m;
 } LocalMesh;
 
-int initialise_system(const int N[3], const double d[3], const int periodic[],
+int initialise_system(const int dim, const int N[3], const double d[3], const int periodic[],
                       LocalMesh *local, GlobalMesh *global, MPI_Comm COMMUNICATOR);
+
+
+int set_m(void (*f)(double r[3], double m[3]));
